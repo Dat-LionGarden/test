@@ -1,0 +1,99 @@
+{
+  "name": "edoa-fid-server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A Strapi application",
+  "scripts": {
+    "build": "rm -rf ./dist && strapi build",
+    "commit": "cz",
+    "commit:safe": "yarn format && yarn lint && yarn strapi ts:generate-types && git add . && yarn commit",
+    "console": "strapi console",
+    "deploy": "strapi deploy",
+    "dev": "strapi develop",
+    "develop": "strapi develop",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "format:staged": "npx lint-staged",
+    "prepare": "husky",
+    "start": "strapi start",
+    "strapi": "strapi",
+    "upgrade": "npx @strapi/upgrade latest",
+    "upgrade:dry": "npx @strapi/upgrade latest --dry",
+    "seed:tags": "tsx ./scripts/seed-tags.ts",
+    "seed:industries": "tsx ./scripts/seed-industries.ts",
+    "seed:clients": "tsx ./scripts/seed-clients.ts",
+    "seed:works": "tsx ./scripts/seed-works.ts",
+    "seed:interviews": "tsx ./scripts/seed-interviews.ts",
+    "seed:authors": "tsx ./scripts/seed-authors.ts",
+    "seed:news": "tsx ./scripts/seed-news.ts",
+    "seed:all": "tsx ./scripts/seed-all.ts",
+    "seed:global-page": "tsx ./scripts/pages/seed-global-page.ts",
+    "seed:home-page": "tsx ./scripts/pages/seed-home-page.ts",
+    "seed:about-page": "tsx ./scripts/pages/seed-about-page.ts",
+    "seed:work-page": "tsx ./scripts/pages/seed-work-page.ts",
+    "seed:terms-page": "tsx ./scripts/pages/seed-terms-page.ts",
+    "seed:recruitment-page": "tsx ./scripts/pages/seed-recruitment-page.ts",
+    "seed:pages": "tsx ./scripts/pages/seed-pages.ts",
+    "seed:all-pages": "tsx ./scripts/pages/seed-all-pages.ts"
+  },
+  "dependencies": {
+    "@_sh/strapi-plugin-ckeditor": "^6.0.2",
+    "@aws-sdk/client-ses": "^3.879.0",
+    "@strapi/plugin-cloud": "5.18.0",
+    "@strapi/plugin-documentation": "^5.20.0",
+    "@strapi/plugin-users-permissions": "5.18.0",
+    "@strapi/provider-email-amazon-ses": "^5.23.3",
+    "@strapi/provider-upload-aws-s3": "^5.21.0",
+    "@strapi/strapi": "5.18.0",
+    "fs-extra": "^10.0.0",
+    "mime-types": "^2.1.27",
+    "pg": "8.8.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.0.0",
+    "strapi-plugin-preview-button": "^3.0.2",
+    "styled-components": "^6.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^9.32.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5",
+    "typescript-eslint": "^8.38.0"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=22.x.x",
+    "npm": ">=6.0.0"
+  },
+  "strapi": {
+    "uuid": "a6f6b7d7-47e9-455a-ac28-d9e7510dd6a0",
+    "installId": "3a10fbe1c84fd381aec341733b3103d18216bb007edc2db083ddd5640b758559"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
